@@ -19,12 +19,17 @@
                 <th>NumEtud</th>
                 <td>{{ student.numEtud }}</td>
             </tr>
+            <tr>
+                <th>Departement</th>
+                <td>{{ student.departement.name }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_student_index') }}">back to list</a>
-
-    <a href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>
+    <a class="btn btn-success"href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>
 
     {{ include('student/_delete_form.html.twig') }}
+    
+    <a href="{{ path('app_student_index') }}">back to list</a>
+
 {% endblock %}

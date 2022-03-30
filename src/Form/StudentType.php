@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Student;
+use App\Entity\Departement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class StudentType extends AbstractType
@@ -15,6 +17,10 @@ class StudentType extends AbstractType
             ->add('firstName')
             ->add('lastName')
             ->add('numEtud')
+            ->add('departement',EntityType::class,[
+                'class'=>Departement::class,
+                'choice_label'=>'name'
+            ])
         ;
     }
 
