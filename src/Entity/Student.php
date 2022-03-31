@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\StudentRepository;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass=StudentRepository::class)
+ * 
+ * @ApiResource()
+ * @ApiFilter(SearchFilter::class, properties={"departement.name"})
  */
 class Student
 {
